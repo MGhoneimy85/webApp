@@ -1,0 +1,20 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~ngx-toastr/toastr";
+@import './variables';
+@import './mixins';
+
+html{
+  height: 100%;
+  body{
+
+    background-image: url(../img/fantasy.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+
+.login{
+
+}

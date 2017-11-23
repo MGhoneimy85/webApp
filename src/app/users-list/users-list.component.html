@@ -1,0 +1,19 @@
+<div class="container user-list-tpl" >
+  <div class="row">
+    <div class="col">
+      <h1 class=" text-center">User List</h1>
+    </div>
+  </div>
+  <nav>
+    <a routerLink="/userList" routerLinkActive="active">Users</a>
+    <a routerLink="/login" routerLinkActive="active">logout</a>
+  </nav>
+  <div class="row user-item-row" *ngFor="let user of userList">
+      <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+        <img src="{{user.avatar}}" />
+      </div>
+      <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
+        <a routerLinkActive="/userDetails">{{user.first_name}} {{user.last_name}}</a>
+      </div>
+  </div>
+</div>
