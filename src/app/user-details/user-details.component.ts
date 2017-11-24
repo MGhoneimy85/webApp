@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import {Http , Response} from "@angular/http";
-import {isNumber} from "util";
+import { CommunService } from '../commun.service';
+
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -10,7 +9,7 @@ import {isNumber} from "util";
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor(private _http: Http , private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router , private service:CommunService) { }
 
   user: Object = {
     "id": 0,
@@ -23,20 +22,12 @@ export class UserDetailsComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     if(id){
       this.isUpdate = true;
-      this._http.get('https://reqres.in/api/users/'+id)
-        .map((res: Response) => res.json())
-        .subscribe(data => {
-          this.user= data.data;
-        });
+      this.service.getUser(id)
+        .then(result => this.user = result.data )
+        .catch(error => console.log(error));
     }
     else{
       this.isUpdate = false;
-
     }
-
-
-
-
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
 import { Router } from "@angular/router";
-
+import 'rxjs/add/operator/map';
+import { CommunService } from '../commun.service';
 
 @Component({
   selector: 'app-users-list',
@@ -11,28 +11,33 @@ import { Router } from "@angular/router";
 export class UsersListComponent implements OnInit {
 
 
-  userList: Object = [
-    {
+  userList: Object =
+    [{
       avatar:'',
       first_name:'',
       last_name:''
-    }
-  ]
+    }];
+  errorMessage:string;
+  page:string = '1';
 
-  constructor(private _http: Http , private router:Router) { }
+  constructor( private router:Router, private service:CommunService ) { }
 
   ngOnInit() {
-    this._http.get('https://reqres.in/api/users?page=2')
-      .map((res: Response) => res.json())
-      .subscribe(data => {
-         this.userList = data.data;
-      });
+      this.service.getallUsers(this.page)
+      .then(result => this.userList = result.data )
+      .catch(error => console.log(error));
   }
 
   gotoDetails(id){
 
     this.router.navigate(['/userDetails' , {id: id}]);
 
+  }
+
+  nextPage(page){
+      this.service.getallUsers(page)
+      .then(result => this.userList = result.data )
+      .catch(error => console.log(error));
   }
 
 }

@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { CommunService } from './commun.service'
+
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,7 +34,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)// { enableTracing: true } // <-- debugging purposes only
   ],
-  providers: [],
+  providers: [ CommunService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
