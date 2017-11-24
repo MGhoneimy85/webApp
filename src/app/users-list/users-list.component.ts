@@ -45,7 +45,7 @@ export class UsersListComponent implements OnInit {
     this.service.deleteUser(id)
       .then(result => {
         this.toastr.success('Successfuly', 'User Deleted');
-        ngOnInit();
+        this.ngOnInit();
       } )
       .catch(error => console.log(error));
   }
