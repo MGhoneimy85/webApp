@@ -5,8 +5,10 @@
     <a routerLink="/login" routerLinkActive="active">logout</a>
   </nav>
   <div class="row user-item-row" *ngFor="let user of userList">
-      <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 user-img">
-        <img src="{{user.avatar}}" />
+      <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+        <div class="user-img">
+          <img src="{{user.avatar}}" />
+        </div>
       </div>
       <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10 user-name">
         <a routerLink="/userDetails">{{user.first_name}} {{user.last_name}}</a>
