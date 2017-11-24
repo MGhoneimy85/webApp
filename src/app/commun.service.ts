@@ -55,8 +55,39 @@ export class CommunService {
 
   }
 
+  //update user by id
+
+  updateUser(user): Promise<any> {
+    return this.http
+      .patch(this.apiUrl + 'api/users/' + user.id, user )
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+
+  }
+
+  //add new user
+
+  addUser(user): Promise<any> {
+    return this.http
+      .post(this.apiUrl + 'api/users', user )
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+
+  }
 
 
+  //delete user
+
+  deleteUser(id): Promise<any> {
+    return this.http
+      .delete(this.apiUrl + 'api/users/' + id)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+
+  }
 
 
 }
