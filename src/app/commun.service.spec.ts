@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { CommunService } from './commun.service';
-
+import { HttpModule } from '@angular/http';
 describe('CommunService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CommunService]
+      providers: [CommunService,HttpModule],
+      imports: [ HttpModule],
     });
   });
 
