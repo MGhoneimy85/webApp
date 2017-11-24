@@ -32,7 +32,7 @@ export class LoginComponent {
         .map((res: Response) => res.json())
         .subscribe(data => {
            this.token = data;
-            this.router.navigate(['userlist'])
+            this.router.navigate(['userList'])
         });
     }
     else {

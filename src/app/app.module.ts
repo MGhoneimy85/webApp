@@ -13,7 +13,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'userlist', component: UsersListComponent },
+  { path: 'userList', component: UsersListComponent },
   { path: 'userDetails', component: UserDetailsComponent }
 ];
 

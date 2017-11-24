@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-users-list',
@@ -17,7 +19,7 @@ export class UsersListComponent implements OnInit {
     }
   ]
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http , private router:Router) { }
 
   ngOnInit() {
     this._http.get('https://reqres.in/api/users?page=2')
@@ -25,6 +27,12 @@ export class UsersListComponent implements OnInit {
       .subscribe(data => {
          this.userList = data.data;
       });
+  }
+
+  gotoDetails(id){
+
+    this.router.navigate(['/userDetails' , {id: id}]);
+
   }
 
 }
