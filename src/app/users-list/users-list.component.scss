@@ -1,22 +1,36 @@
 .user-list-tpl{
-
-  h1{
-    color: azure;
-    margin: 2% 0;
-  }
-
   .user-item-row{
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255,255,255,.5);
     padding: 15px;
     margin:10px 0;
     border:1px #ccc solid;
     border-radius: 10px;
-    img{
-      width:60px;
-      height:60px;
-      padding: 3px;
-      background-color: #28a745;
-      border-radius: 50%;
+    min-height: 100px;
+    .user-img{
+      img{
+        width:100%;
+        min-height: 100%;
+        padding: 3px;
+        background-color: #625029;
+        border-radius: 50%;
+      }
+    }
+    .user-name{
+      a{
+        color: #625029;
+        font-size: 24px;
+        line-height: 28px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .glyphicon-trash{
+        position: absolute;
+        right: 0;
+        top: 40%;
+        color: crimson;
+        font-size: 40px;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -9,17 +9,20 @@ import { HttpModule }    from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'userlist', component: UsersListComponent }
+  { path: 'userlist', component: UsersListComponent },
+  { path: 'userDetails', component: UserDetailsComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,11 +30,7 @@ const appRoutes: Routes = [
     ToastrModule.forRoot(), // ToastrModule added
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
-
+    RouterModule.forRoot(appRoutes)// { enableTracing: true } // <-- debugging purposes only
   ],
   providers: [],
   bootstrap: [AppComponent]

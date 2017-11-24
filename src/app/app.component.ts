@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
 
@@ -7,11 +7,16 @@ import {Router} from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app';
-  constructor( private router:Router ) {
 
-    this.router.navigate(['login']);
+  constructor( public router:Router ) {
 
+
+
+  }
+
+  ngOnInit() {
+    this.router.navigateByUrl('/login');
   }
 }

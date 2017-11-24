@@ -1,4 +1,4 @@
-<h1 class="text-center"> Login </h1>
+<h2 class="text-center"> Login </h2>
 <div class="login-cont">
   <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
     <div class="form-group">
@@ -10,7 +10,9 @@
       <label for="passwordid">Password:</label>
       <input type="password" required class="form-control" name="password" id="passwordid" [(ngModel)]="user.password"  placeholder="Enter Password" #password="ngModel">
     </div>
-    <button type="submit" class="btn btn-success float-right">Login</button>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-success ">Login</button>
+    </div>
     <div class="clearfix"></div>
   </form>
 </div>
